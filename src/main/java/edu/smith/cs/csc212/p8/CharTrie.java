@@ -115,7 +115,7 @@ public class CharTrie extends AbstractSet<String> {
 		}
 		
 		/**
-		 * Incomplete method to compute how many nodes are in this Trie. Recursive.
+		 * compute how many nodes are in this Trie. Recursive.
 		 * @return the count of nodes that exist in the Trie, starting from here.
 		 */
 		public int countNodes() {
@@ -123,6 +123,11 @@ public class CharTrie extends AbstractSet<String> {
 			// loop over links
 			// if they're not null
 			// count them, too
+			for (int i=0;i<links.length;i++) {
+				if (links[i] != null) {
+					count += links[i].countNodes();
+				}
+			}
 			return count;
 		}
 	}
